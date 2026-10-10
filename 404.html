@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — A.D.G.B</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Cpath d='M32 12 L50 52 H40 L36 43 H28 L24 52 H14 Z M32 26 L29.5 34 H34.5 Z' fill='%23e10600' fill-rule='evenodd'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Sans:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+    body{min-height:100vh;display:grid;place-items:center;text-align:center;background:#0a0a0a;color:#f2f0ec;font-family:"IBM Plex Sans",system-ui,sans-serif;padding:24px;overflow:hidden;position:relative}
+    body::before{content:"";position:absolute;width:900px;height:900px;border-radius:50%;left:50%;top:50%;translate:-50% -50%;background:radial-gradient(circle,rgba(225,6,0,.4),rgba(110,10,8,.2) 35%,transparent 62%);filter:blur(20px);animation:b 7s ease-in-out infinite}
+    @keyframes b{50%{scale:1.1}}
+    main{position:relative}
+    h1{font-family:"Chakra Petch",Arial,sans-serif;font-weight:700;font-size:clamp(6rem,24vw,15rem);line-height:.9;letter-spacing:.02em}
+    h1 em{color:#e10600;font-style:normal}
+    p{margin:18px auto 34px;color:#c4beb5;max-width:420px}
+    a{display:inline-block;padding:15px 30px;background:#e10600;color:#fff;text-decoration:none;font-family:"Chakra Petch",Arial,sans-serif;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:1px solid #e10600;transition:background .4s,color .4s}
+    a:hover{background:#f2f0ec;color:#0a0a0a;border-color:#f2f0ec}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>4<em>0</em>4</h1>
+    <p id="msg">Esta página no existe. Volvamos al inicio.</p>
+    <a href="./" id="back">Volver al inicio</a>
+  </main>
+  <script>
+    if ((navigator.language || "").toLowerCase().indexOf("en") === 0) {
+      document.documentElement.lang = "en";
+      document.getElementById("msg").textContent = "This page doesn't exist. Let's head back home.";
+      document.getElementById("back").textContent = "Back to home";
+    }
+  </script>
+</body>
+</html>

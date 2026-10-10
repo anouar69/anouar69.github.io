@@ -1,0 +1,77 @@
+# A.D.G.B — Sitio web (rojo y negro, ES/EN)
+
+Sitio estático, sin dependencias ni compilación. Funciona tal cual en **GitHub Pages**, gratis.
+
+## Pestañas
+
+| Pestaña    | Contenido                                                                 |
+|------------|---------------------------------------------------------------------------|
+| Inicio     | Quién eres (pequeño programador que recién empieza), sello de la "A" roja y vista rápida de tus apps |
+| Proyectos  | Un apartado por app: **Adownloader**, **Aplayer** y **Asteam**, cada uno con su biografía |
+| Contacto   | Correo y GitHub                                                           |
+
+Todo está en una sola página: al cambiar de pestaña aparece una cortina roja con una "A" y cambia el contenido. Cada app también tiene su propio enlace directo, por ejemplo `https://TU-USUARIO.github.io/#aplayer`.
+
+## Archivos
+
+| Archivo       | Para qué sirve                                      |
+|---------------|-----------------------------------------------------|
+| `index.html`  | Estructura y textos en español (idioma base)        |
+| `styles.css`  | Diseño, colores, tipografía, animaciones, móvil     |
+| `script.js`   | Pestañas, traducción ES/EN, transiciones, efectos   |
+| `404.html`    | Página de error con el mismo estilo                 |
+
+## Publicar en GitHub Pages (gratis)
+
+1. Crea una cuenta en <https://github.com> si no tienes.
+2. Crea un repositorio **público** llamado exactamente `TU-USUARIO.github.io` (así tu sitio queda en `https://TU-USUARIO.github.io`).
+3. En el repositorio: **Add file → Upload files**, arrastra `index.html`, `styles.css`, `script.js` y `404.html`, y pulsa **Commit changes**.
+4. Ve a **Settings → Pages**. En *Build and deployment* elige **Deploy from a branch**, rama **main**, carpeta **/ (root)** y guarda.
+5. Espera 1–2 minutos y abre tu dirección. Si no aparece, recarga con `Ctrl + Shift + R`.
+
+## Cuando una app esté lista para descargar
+
+Lo más cómodo es usar **GitHub Releases** para alojar los archivos:
+
+1. En el repositorio de la app: **Releases → Create a new release**, sube el instalador (`.exe`, `.zip`, etc.) y publícalo.
+2. Copia el enlace del archivo.
+3. En `index.html`, dentro del apartado de esa app (por ejemplo `id="adownloader"`), busca el botón:
+
+   ```html
+   <a href="#" class="btn btn--disabled" aria-disabled="true" data-i18n="dl.soon">Descarga próximamente</a>
+   ```
+
+   y cámbialo por:
+
+   ```html
+   <a href="PEGA-AQUI-EL-ENLACE" class="btn" data-i18n="dl.go">Descargar</a>
+   ```
+
+4. Cambia también la etiqueta "En desarrollo" por "Disponible" si quieres (en español en `index.html`, en inglés en `script.js`), y borra la nota `dl.note`.
+
+## Agregar un proyecto nuevo
+
+1. Copia un bloque `<article class="project" id="...">` completo en la pestaña Proyectos y cambia el `id`, el número (`04 / APP`), el nombre (la "A" va dentro de `<span class="a">A</span>`) y los textos.
+2. Cada texto tiene `data-i18n="clave"`: agrega esa clave con su traducción al objeto `EN` al inicio de `script.js`.
+3. Para que aparezca en el menú rápido, agrega su enlace en `<nav class="jump">`, una tarjeta en Inicio y su `id` en la lista `PROJECTS` de `script.js`.
+
+## Personalizar
+
+- **Correo y GitHub:** en `index.html`, pestaña Contacto, reemplaza `tucorreo@ejemplo.com` y `TU-USUARIO` (aparece también en el enlace de GitHub).
+- **Textos en español:** edítalos en `index.html`. **En inglés:** en el objeto `EN` de `script.js` (misma clave `data-i18n`). Si cambias uno, cambia el otro.
+- **Colores:** al inicio de `styles.css`, en `:root`:
+
+  ```css
+  --red: #e10600;      /* rojo principal */
+  --red-hot: #ff2a1f;  /* rojo brillante (acentos) */
+  --black: #0a0a0a;    /* fondo */
+  ```
+
+- **Tipografía:** Chakra Petch (títulos, cuadrada), IBM Plex Sans (texto) e IBM Plex Mono (etiquetas), desde Google Fonts. Para cambiarlas, edita el `<link>` de fuentes en `index.html` y las variables `--font-*` en `styles.css`.
+- **Dominio propio (opcional):** en *Settings → Pages → Custom domain*.
+
+## Notas
+
+- El idioma se detecta según el navegador y se recuerda la elección del visitante.
+- Respeta la preferencia de "reducir movimiento" del sistema.
+- Las tipografías necesitan conexión a internet para verse bien.

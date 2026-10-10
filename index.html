@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A.D.G.B — Programador independiente · Apps para descargar y usar</title>
+  <meta name="description" content="A.D.G.B es un pequeño programador que recién empieza. Aquí encontrarás mis proyectos: Adownloader, Aplayer y Asteam.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="A.D.G.B — Programador independiente">
+  <meta property="og:description" content="Mis proyectos para descargar y usar: Adownloader, Aplayer y Asteam.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Cpath d='M32 12 L50 52 H40 L36 43 H28 L24 52 H14 Z M32 26 L29.5 34 H34.5 Z' fill='%23e10600' fill-rule='evenodd'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <noscript><style>.view[hidden]{display:block}.loader{display:none}[data-reveal]{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+  <!-- Pantalla de carga -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__word"><span class="a">A</span>.D.G.B</div>
+    <div class="loader__bar"><span></span></div>
+  </div>
+
+  <!-- Cortina roja entre pestañas -->
+  <div class="wipe" id="wipe" aria-hidden="true"></div>
+
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- Navegación -->
+  <header class="header" id="header">
+    <div class="wrap header__inner">
+      <a href="#inicio" class="logo" aria-label="A.D.G.B">
+        <span class="logo__mark"></span><span class="logo__text"><span class="a">A</span>.D.G.B</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="#inicio" data-view="inicio" data-i18n="nav.home">Inicio</a>
+        <a href="#proyectos" data-view="proyectos" data-i18n="nav.projects">Proyectos</a>
+        <a href="#contacto" data-view="contacto" data-i18n="nav.contact">Contacto</a>
+      </nav>
+
+      <div class="header__actions">
+        <div class="lang" role="group" aria-label="Idioma / Language">
+          <button type="button" class="lang__btn is-active" data-lang="es" aria-pressed="true">ES</button>
+          <span class="lang__sep">/</span>
+          <button type="button" class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button type="button" class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- ===================== PESTAÑA 1: INICIO ===================== -->
+    <div class="view" id="view-inicio">
+
+      <section class="hero">
+        <div class="hero__ember" id="ember" aria-hidden="true"></div>
+        <div class="hero__lines" aria-hidden="true"></div>
+
+        <div class="wrap hero__inner">
+          <p class="eyebrow eyebrow--hero" data-i18n="hero.eyebrow">Programador independiente</p>
+
+          <h1 class="hero__title">
+            <span class="line"><span data-i18n="hero.l1">Soy un pequeño</span></span>
+            <span class="line"><span data-i18n="hero.l2">programador</span></span>
+            <span class="line"><span class="red" data-i18n="hero.l3">que recién empieza.</span></span>
+          </h1>
+
+          <div class="hero__foot">
+            <p class="hero__sub" data-i18n="hero.sub">Hola, soy A.D.G.B. Estoy dando mis primeros pasos en la programación y creo mis propias aplicaciones para que cualquiera pueda descargarlas y usarlas.</p>
+            <div class="hero__cta">
+              <a href="#proyectos" class="btn" data-i18n="hero.btn1">Ver proyectos</a>
+              <a href="#contacto" class="btn btn--ghost" data-i18n="hero.btn2">Contacto</a>
+            </div>
+          </div>
+
+          <div class="hero__meta">
+            <span data-i18n="hero.meta1">Primeros pasos</span>
+            <span data-i18n="hero.meta2">3 proyectos en desarrollo</span>
+            <span class="hero__scroll"><i></i><span data-i18n="hero.scroll">Desliza</span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cinta con los nombres de las apps -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <div class="marquee__group">
+            <span><b>A</b>downloader</span><span><b>A</b>player</span><span><b>A</b>steam</span><span><b>A</b>downloader</span><span><b>A</b>player</span><span><b>A</b>steam</span>
+          </div>
+          <div class="marquee__group">
+            <span><b>A</b>downloader</span><span><b>A</b>player</span><span><b>A</b>steam</span><span><b>A</b>downloader</span><span><b>A</b>player</span><span><b>A</b>steam</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sobre mí -->
+      <section class="section">
+        <div class="wrap about">
+          <div class="about__text" data-reveal>
+            <p class="eyebrow" data-i18n="about.eyebrow">01 / Sobre mí</p>
+            <h2 class="h2" data-i18n="about.title">Apenas empiezo, pero ya estoy construyendo.</h2>
+            <p class="body" data-i18n="about.text1">Soy un pequeño programador y recién empiezo en esto. Aprendo creando: cada proyecto es una oportunidad para mejorar un poco más.</p>
+            <p class="body" data-i18n="about.text2">Todo lo que hago lo comparto aquí para que lo descargues, lo uses y, si quieres, me digas qué piensas.</p>
+          </div>
+
+          <aside class="seal" data-reveal style="--d:140ms">
+            <span class="seal__a" aria-hidden="true">A</span>
+            <h3 class="h4" data-i18n="rule.title">Todo empieza con una A</h3>
+            <p data-i18n="rule.text">Cada uno de mis proyectos lleva una A roja al inicio. Es mi sello.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Lo que estoy creando -->
+      <section class="section section--alt">
+        <div class="wrap">
+          <header class="section__head" data-reveal>
+            <p class="eyebrow" data-i18n="build.eyebrow">02 / En construcción</p>
+            <h2 class="h2" data-i18n="build.title">Lo que estoy creando</h2>
+            <p class="lead" data-i18n="build.lead">Tres aplicaciones en desarrollo. Pronto podrás descargarlas.</p>
+          </header>
+
+          <div class="minis">
+            <a href="#adownloader" class="mini" data-reveal style="--d:0ms">
+              <span class="mini__a" aria-hidden="true">A</span>
+              <span class="chip" data-i18n="status.dev">En desarrollo</span>
+              <span class="mini__name"><span class="a">A</span>downloader</span>
+              <span class="mini__desc" data-i18n="m1.desc">Descarga videos y música.</span>
+              <span class="mini__go" aria-hidden="true">→</span>
+            </a>
+            <a href="#aplayer" class="mini" data-reveal style="--d:120ms">
+              <span class="mini__a" aria-hidden="true">A</span>
+              <span class="chip" data-i18n="status.dev">En desarrollo</span>
+              <span class="mini__name"><span class="a">A</span>player</span>
+              <span class="mini__desc" data-i18n="m2.desc">Un reproductor para tu música.</span>
+              <span class="mini__go" aria-hidden="true">→</span>
+            </a>
+            <a href="#asteam" class="mini" data-reveal style="--d:240ms">
+              <span class="mini__a" aria-hidden="true">A</span>
+              <span class="chip" data-i18n="status.dev">En desarrollo</span>
+              <span class="mini__name"><span class="a">A</span>steam</span>
+              <span class="mini__desc" data-i18n="m3.desc">Un complemento para Steam.</span>
+              <span class="mini__go" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ===================== PESTAÑA 2: PROYECTOS ===================== -->
+    <div class="view" id="view-proyectos" hidden>
+
+      <section class="page-head">
+        <div class="wrap">
+          <p class="eyebrow" data-i18n="prj.eyebrow">Proyectos</p>
+          <h1 class="h1" data-i18n="prj.title">Mis aplicaciones</h1>
+          <p class="lead" data-i18n="prj.lead">Todo lo que creo vive aquí. Elige una app, lee de qué trata y descárgala cuando esté lista.</p>
+
+          <nav class="jump" aria-label="Proyectos">
+            <a href="#adownloader"><span class="a">A</span>downloader</a>
+            <a href="#aplayer"><span class="a">A</span>player</a>
+            <a href="#asteam"><span class="a">A</span>steam</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="projects">
+        <div class="wrap">
+
+          <!-- Adownloader -->
+          <article class="project" id="adownloader" data-reveal>
+            <div class="project__side">
+              <div class="project__mark" aria-hidden="true"><span>A</span></div>
+              <span class="chip" data-i18n="status.dev">En desarrollo</span>
+            </div>
+            <div class="project__body">
+              <p class="eyebrow">01 / APP</p>
+              <h2 class="h2 pname"><span class="a">A</span>downloader</h2>
+              <p class="project__kind" data-i18n="p1.kind">Descargador de videos y música</p>
+              <p class="project__bio" data-i18n="p1.bio">Adownloader es una aplicación para descargar videos y música de forma rápida y sencilla. La estoy creando para que guardar lo que te gusta sea fácil, sin complicaciones ni pasos de más.</p>
+              <ul class="ticks">
+                <li data-i18n="p1.f1">Descarga videos</li>
+                <li data-i18n="p1.f2">Descarga música (solo audio)</li>
+                <li data-i18n="p1.f3">Interfaz simple y directa</li>
+              </ul>
+              <div class="project__actions">
+                <a href="#" class="btn btn--disabled" aria-disabled="true" data-i18n="dl.soon">Descarga próximamente</a>
+                <span class="note" data-i18n="dl.note">Todavía en desarrollo. Pronto podrás descargarla aquí.</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Aplayer -->
+          <article class="project" id="aplayer" data-reveal>
+            <div class="project__side">
+              <div class="project__mark" aria-hidden="true"><span>A</span></div>
+              <span class="chip" data-i18n="status.dev">En desarrollo</span>
+            </div>
+            <div class="project__body">
+              <p class="eyebrow">02 / APP</p>
+              <h2 class="h2 pname"><span class="a">A</span>player</h2>
+              <p class="project__kind" data-i18n="p2.kind">Reproductor de música</p>
+              <p class="project__bio" data-i18n="p2.bio">Aplayer es un reproductor de música pensado para escuchar tus canciones con una interfaz limpia y sin distracciones. Es mi forma de crear la app que a mí me gustaría usar.</p>
+              <ul class="ticks">
+                <li data-i18n="p2.f1">Reproduce tu música</li>
+                <li data-i18n="p2.f2">Diseño limpio</li>
+                <li data-i18n="p2.f3">Hecho para escuchar sin distracciones</li>
+              </ul>
+              <div class="project__actions">
+                <a href="#" class="btn btn--disabled" aria-disabled="true" data-i18n="dl.soon">Descarga próximamente</a>
+                <span class="note" data-i18n="dl.note">Todavía en desarrollo. Pronto podrás descargarla aquí.</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Asteam -->
+          <article class="project" id="asteam" data-reveal>
+            <div class="project__side">
+              <div class="project__mark" aria-hidden="true"><span>A</span></div>
+              <span class="chip" data-i18n="status.dev">En desarrollo</span>
+            </div>
+            <div class="project__body">
+              <p class="eyebrow">03 / APP</p>
+              <h2 class="h2 pname"><span class="a">A</span>steam</h2>
+              <p class="project__kind" data-i18n="p3.kind">Complemento para Steam</p>
+              <p class="project__bio" data-i18n="p3.bio">Asteam es un complemento para Steam, creado para añadir funciones útiles a la experiencia de juego. Es un proyecto en el que voy aprendiendo y mejorando poco a poco.</p>
+              <ul class="ticks">
+                <li data-i18n="p3.f1">Complemento para Steam</li>
+                <li data-i18n="p3.f2">Pensado para jugadores</li>
+                <li data-i18n="p3.f3">En constante mejora</li>
+              </ul>
+              <div class="project__actions">
+                <a href="#" class="btn btn--disabled" aria-disabled="true" data-i18n="dl.soon">Descarga próximamente</a>
+                <span class="note" data-i18n="dl.note">Todavía en desarrollo. Pronto podrás descargarla aquí.</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================== PESTAÑA 3: CONTACTO ===================== -->
+    <div class="view" id="view-contacto" hidden>
+      <section class="page-head page-head--contact">
+        <div class="wrap">
+          <p class="eyebrow" data-i18n="con.eyebrow">Contacto</p>
+          <h1 class="h1" data-i18n="con.title">Hablemos</h1>
+          <p class="lead" data-i18n="con.lead">¿Tienes una idea, encontraste un error o quieres darme tu opinión? Escríbeme, me ayuda a mejorar.</p>
+
+          <ul class="channels">
+            <li>
+              <a href="mailto:tucorreo@ejemplo.com">
+                <span class="channels__label" data-i18n="con.mail">Correo</span>
+                <span class="channels__value">tucorreo@ejemplo.com</span>
+                <span class="channels__go" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/TU-USUARIO" rel="noopener" target="_blank">
+                <span class="channels__label">GitHub</span>
+                <span class="channels__value">github.com/TU-USUARIO</span>
+                <span class="channels__go" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="wrap footer__row">
+      <a href="#inicio" class="logo"><span class="logo__mark"></span><span class="logo__text"><span class="a">A</span>.D.G.B</span></a>
+      <nav class="footer__nav" aria-label="Pie">
+        <a href="#inicio" data-i18n="nav.home">Inicio</a>
+        <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+      </nav>
+    </div>
+    <div class="wrap footer__bottom">
+      <span>© <span id="year">2026</span> A.D.G.B</span>
+      <span data-i18n="ft.made">Hecho a mano, una app a la vez.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
