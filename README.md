@@ -6,11 +6,11 @@ Sitio estático, sin dependencias ni compilación. Funciona tal cual en **GitHub
 
 | Pestaña    | Contenido                                                                 |
 |------------|---------------------------------------------------------------------------|
-| Inicio     | Quién eres (pequeño programador que recién empieza), sello de la "A" roja y vista rápida de tus apps |
+| Inicio     | El significado de A.D.G.B, quién eres (pequeño programador que recién empieza), sello de la "A" roja y vista rápida de tus apps |
 | Proyectos  | Un apartado por app: **Adownloader**, **Aplayer** y **Asteam**, cada uno con su biografía |
-| Contacto   | Correo y GitHub                                                           |
+| Más        | Tus redes sociales (GitHub y las que quieras agregar)                     |
 
-Todo está en una sola página: al cambiar de pestaña aparece una cortina roja con una "A" y cambia el contenido. Cada app también tiene su propio enlace directo, por ejemplo `https://TU-USUARIO.github.io/#aplayer`.
+Todo está en una sola página: al cambiar de pestaña aparece una cortina roja con una "A" y cambia el contenido. Cada app también tiene su propio enlace directo, por ejemplo `https://adgb3264.github.io/#aplayer`.
 
 ## Archivos
 
@@ -24,7 +24,7 @@ Todo está en una sola página: al cambiar de pestaña aparece una cortina roja 
 ## Publicar en GitHub Pages (gratis)
 
 1. Crea una cuenta en <https://github.com> si no tienes.
-2. Crea un repositorio **público** llamado exactamente `TU-USUARIO.github.io` (así tu sitio queda en `https://TU-USUARIO.github.io`).
+2. Crea un repositorio **público** llamado exactamente `adgb3264.github.io` (así tu sitio queda en `https://adgb3264.github.io`).
 3. En el repositorio: **Add file → Upload files**, arrastra `index.html`, `styles.css`, `script.js` y `404.html`, y pulsa **Commit changes**.
 4. Ve a **Settings → Pages**. En *Build and deployment* elige **Deploy from a branch**, rama **main**, carpeta **/ (root)** y guarda.
 5. Espera 1–2 minutos y abre tu dirección. Si no aparece, recarga con `Ctrl + Shift + R`.
@@ -57,7 +57,20 @@ Lo más cómodo es usar **GitHub Releases** para alojar los archivos:
 
 ## Personalizar
 
-- **Correo y GitHub:** en `index.html`, pestaña Contacto, reemplaza `tucorreo@ejemplo.com` y `TU-USUARIO` (aparece también en el enlace de GitHub).
+- **Significado de A.D.G.B:** en el inicio aparece como Avanzado · Dedicado · Genuino · Brillante. Para cambiar una palabra, edita su línea en `index.html` (`data-i18n="hero.l1"` a `hero.l4`) y su traducción en el objeto `EN` de `script.js`. La letra roja va dentro de `<span class="red">`.
+- **Agregar otra red social:** en `index.html`, pestaña Más, copia el bloque `<li>` de GitHub dentro de `<ul class="channels">` y cambia el enlace, el nombre y el texto. Ejemplo:
+
+  ```html
+  <li>
+    <a href="https://www.youtube.com/@tucanal" rel="noopener" target="_blank">
+      <span class="channels__label">YouTube</span>
+      <span class="channels__value">youtube.com/@tucanal</span>
+      <span class="channels__go" aria-hidden="true">→</span>
+    </a>
+  </li>
+  ```
+
+  Cuando tengas varias redes, puedes borrar la fila "Próximamente" (`class="channels__soon"`).
 - **Textos en español:** edítalos en `index.html`. **En inglés:** en el objeto `EN` de `script.js` (misma clave `data-i18n`). Si cambias uno, cambia el otro.
 - **Colores:** al inicio de `styles.css`, en `:root`:
 

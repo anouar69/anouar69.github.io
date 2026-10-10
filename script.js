@@ -1,6 +1,6 @@
 /* ============================================================
    A.D.G.B — comportamiento del sitio
-   - Pestañas (Inicio / Proyectos / Contacto) con cortina roja
+   - Pestañas (Inicio / Proyectos / Más) con cortina roja
    - Idiomas ES / EN (el español vive en el HTML, el inglés aquí)
    - Pantalla de carga, revelado al hacer scroll, cursor luminoso
    ============================================================ */
@@ -17,12 +17,13 @@
     "meta.title": "A.D.G.B — Independent developer · Apps to download and use",
     "meta.desc": "A.D.G.B is a small-time developer just getting started. Here you'll find my projects: Adownloader, Aplayer and Asteam.",
 
-    "nav.home": "Home", "nav.projects": "Projects", "nav.contact": "Contact",
+    "nav.home": "Home", "nav.projects": "Projects", "nav.more": "More",
 
-    "hero.eyebrow": "Independent developer",
-    "hero.l1": "I'm a small", "hero.l2": "developer", "hero.l3": "just starting out.",
+    "hero.eyebrow": "A.D.G.B stands for",
+    "hero.l1": "<span class=\"red\">A</span>dvanced", "hero.l2": "<span class=\"red\">D</span>edicated",
+    "hero.l3": "<span class=\"red\">G</span>enuine", "hero.l4": "<span class=\"red\">B</span>right",
     "hero.sub": "Hi, I'm A.D.G.B. I'm taking my first steps in programming and I build my own apps so anyone can download and use them.",
-    "hero.btn1": "See projects", "hero.btn2": "Contact",
+    "hero.btn1": "See projects", "hero.btn2": "More",
     "hero.meta1": "First steps", "hero.meta2": "3 projects in development", "hero.scroll": "Scroll",
 
     "about.eyebrow": "01 / About me",
@@ -60,10 +61,11 @@
     "dl.go": "Download",
     "dl.note": "Still in development. You'll be able to download it here soon.",
 
-    "con.eyebrow": "Contact",
-    "con.title": "Let's talk",
-    "con.lead": "Got an idea, found a bug, or want to give me feedback? Write to me, it helps me improve.",
-    "con.mail": "Email",
+    "mas.eyebrow": "More",
+    "mas.title": "My socials",
+    "mas.lead": "Find me here. Follow me to see how my projects are coming along.",
+    "mas.soonlabel": "Coming soon",
+    "mas.soon": "More networks",
 
     "ft.made": "Handmade, one app at a time."
   };
@@ -131,7 +133,7 @@
   if (initial === "en") applyLang("en");
 
   /* ---------- Pestañas con cortina roja ---------- */
-  var VIEWS = ["inicio", "proyectos", "contacto"];
+  var VIEWS = ["inicio", "proyectos", "mas"];
   var PROJECTS = ["adownloader", "aplayer", "asteam"];
   var viewEls = {};
   VIEWS.forEach(function (v) { viewEls[v] = d.getElementById("view-" + v); });
