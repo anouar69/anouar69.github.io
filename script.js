@@ -1,7 +1,8 @@
 /* ============================================================
    A.D.G.B — comportamiento del sitio
    - Pestañas (Inicio / Proyectos / Más) con cortina roja
-   - Idiomas ES / EN (el español vive en el HTML, el inglés aquí)
+   - Idiomas ES / EN / 中文 (el español vive en el HTML; el inglés y el chino aquí)
+   - Botón de sonido de clics (activable / desactivable)
    - Pantalla de carga, revelado al hacer scroll, cursor luminoso
    ============================================================ */
 
@@ -63,11 +64,75 @@
 
     "mas.eyebrow": "More",
     "mas.title": "My socials",
-    "mas.lead": "Find me here. Follow me to see how my projects are coming along.",
+    "mas.lead": "Find me here. Follow me to see how my projects are coming along and to send me suggestions.",
     "mas.soonlabel": "Coming soon",
     "mas.soon": "More networks",
 
-    "ft.made": "Handmade, one app at a time."
+    "ft.made": "Handmade, one app at a time.",
+
+    "snd.on": "Sound: on",
+    "snd.off": "Sound: off"
+  };
+
+  /* ---------- Traducciones al chino mandarín (simplificado) ---------- */
+  var ZH = {
+    "meta.title": "A.D.G.B — 独立开发者 · 可下载使用的应用",
+    "meta.desc": "A.D.G.B 是一位刚刚起步的小小程序员。这里是我的项目：Adownloader、Aplayer 和 Asteam。",
+
+    "nav.home": "首页", "nav.projects": "项目", "nav.more": "更多",
+
+    "hero.eyebrow": "A.D.G.B 的含义",
+    "hero.l1": "<span class=\"red\">A</span> 先进", "hero.l2": "<span class=\"red\">D</span> 专注",
+    "hero.l3": "<span class=\"red\">G</span> 真诚", "hero.l4": "<span class=\"red\">B</span> 闪耀",
+    "hero.sub": "你好，我是 A.D.G.B。我正在迈出编程的第一步，并开发自己的应用，让任何人都可以下载和使用。",
+    "hero.btn1": "查看项目", "hero.btn2": "更多",
+    "hero.meta1": "迈出第一步", "hero.meta2": "3 个项目开发中", "hero.scroll": "向下滑动",
+
+    "about.eyebrow": "01 / 关于我",
+    "about.title": "我才刚刚起步，但已经在动手创造。",
+    "about.text1": "我是一名小小程序员，刚刚入行。我在实践中学习：每个项目都是让自己进步一点点的机会。",
+    "about.text2": "我做的一切都会分享在这里，你可以下载、使用，也可以告诉我你的想法。",
+    "rule.title": "一切都从字母 A 开始",
+    "rule.text": "我的每个项目都以一个红色的 A 开头，这是我的标志。",
+
+    "build.eyebrow": "02 / 制作中",
+    "build.title": "我正在打造的项目",
+    "build.lead": "三款应用正在开发中，很快就能下载。",
+    "status.dev": "开发中",
+    "m1.desc": "下载视频和音乐。",
+    "m2.desc": "一款音乐播放器。",
+    "m3.desc": "Steam 的辅助工具。",
+
+    "prj.eyebrow": "项目",
+    "prj.title": "我的应用",
+    "prj.lead": "我创造的一切都在这里。选一款应用，了解它是什么，等它准备好后就可以下载。",
+
+    "p1.kind": "视频与音乐下载器",
+    "p1.bio": "Adownloader 是一款可以快速、简单地下载视频和音乐的应用。我开发它，是为了让保存你喜欢的内容变得轻松，没有麻烦，也没有多余的步骤。",
+    "p1.f1": "下载视频", "p1.f2": "下载音乐（仅音频）", "p1.f3": "界面简洁直观",
+
+    "p2.kind": "音乐播放器",
+    "p2.bio": "Aplayer 是一款音乐播放器，界面简洁、不打扰，让你专心听歌。这是我打造自己想用的应用的方式。",
+    "p2.f1": "播放你的音乐", "p2.f2": "简洁的设计", "p2.f3": "专为无干扰聆听而生",
+
+    "p3.kind": "Steam 辅助工具",
+    "p3.bio": "Asteam 是 Steam 的辅助工具，旨在为游戏体验增加实用功能。在这个项目中，我会一点一点地学习和改进。",
+    "p3.f1": "Steam 辅助工具", "p3.f2": "为玩家而做", "p3.f3": "持续改进",
+
+    "dl.soon": "即将提供下载",
+    "dl.go": "下载",
+    "dl.note": "仍在开发中，很快就能在这里下载。",
+
+    "mas.eyebrow": "更多",
+    "mas.title": "我的社交账号",
+    "mas.lead": "你可以在这里找到我。关注我，了解项目进展，也欢迎给我提建议。",
+    "mas.soonlabel": "即将推出",
+    "mas.soon": "更多平台",
+
+    "ft.made": "手工打造，一次一个应用。",
+
+    "snd.on": "声音：开",
+    "snd.off": "声音：关"
   };
 
   var STORE_KEY = "adgb-lang";
@@ -85,6 +150,11 @@
     if (!(k in ES)) ES[k] = el.innerHTML;
   });
 
+  // Textos que no están en el HTML (etiquetas del botón de sonido)
+  ES["snd.on"] = "Sonido: activado";
+  ES["snd.off"] = "Sonido: desactivado";
+
+  var DICTS = { es: ES, en: EN, zh: ZH };
   var currentLang = "es";
 
   function readStoredLang() { try { return localStorage.getItem(STORE_KEY); } catch (e) { return null; } }
@@ -92,16 +162,16 @@
 
   function applyLang(lang) {
     currentLang = lang;
-    var dict = lang === "en" ? EN : ES;
+    var dict = DICTS[lang] || ES;
 
     translatable.forEach(function (el) {
       var k = el.getAttribute("data-i18n");
       if (dict[k] !== undefined) el.innerHTML = dict[k];
     });
 
-    d.documentElement.lang = lang;
-    d.title = lang === "en" ? EN["meta.title"] : esTitle;
-    var desc = lang === "en" ? EN["meta.desc"] : esDesc;
+    d.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
+    d.title = lang === "es" ? esTitle : dict["meta.title"];
+    var desc = lang === "es" ? esDesc : dict["meta.desc"];
     if (metaDesc) metaDesc.setAttribute("content", desc);
     if (ogTitle) ogTitle.setAttribute("content", d.title);
     if (ogDesc) ogDesc.setAttribute("content", desc);
@@ -111,6 +181,8 @@
       b.classList.toggle("is-active", on);
       b.setAttribute("aria-pressed", on ? "true" : "false");
     });
+
+    updateSoundUI();
   }
 
   function setLang(lang) {
@@ -129,8 +201,10 @@
   });
 
   var saved = readStoredLang();
-  var initial = saved || ((navigator.language || "es").toLowerCase().indexOf("en") === 0 ? "en" : "es");
-  if (initial === "en") applyLang("en");
+  var navLang = (navigator.language || "es").toLowerCase();
+  var initial = (saved && Object.prototype.hasOwnProperty.call(DICTS, saved)) ? saved
+    : (navLang.indexOf("zh") === 0 ? "zh" : (navLang.indexOf("en") === 0 ? "en" : "es"));
+  if (initial !== "es") applyLang(initial);
 
   /* ---------- Pestañas con cortina roja ---------- */
   var VIEWS = ["inicio", "proyectos", "mas"];
@@ -309,6 +383,10 @@
     });
     navLinks.forEach(function (a) { a.addEventListener("click", closeMenu); });
     d.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(); });
+    // En el celular: tocar fuera del menú lo cierra
+    d.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !nav.contains(e.target) && !burger.contains(e.target)) closeMenu();
+    });
   }
 
   /* ---------- Cursor luminoso y parallax del ascua ---------- */
@@ -338,6 +416,89 @@
     });
     d.addEventListener("mouseleave", function () { if (glow) glow.classList.remove("is-on"); });
   }
+
+  /* ---------- Sonido de clics (se puede activar y desactivar) ---------- */
+  var SOUND_KEY = "adgb-sound";
+  var soundBtn = d.getElementById("sound");
+  var soundOn = false;
+  var audioCtx = null;
+
+  try { soundOn = localStorage.getItem(SOUND_KEY) === "1"; } catch (e) { soundOn = false; }
+
+  // Actualiza el aspecto y las etiquetas del botón según el estado y el idioma
+  function updateSoundUI() {
+    var btn = d.getElementById("sound");
+    if (!btn) return;
+    var dict = DICTS[currentLang] || ES;
+    var label = dict[soundOn ? "snd.on" : "snd.off"] || "";
+    btn.classList.toggle("is-on", !!soundOn);
+    btn.setAttribute("aria-pressed", soundOn ? "true" : "false");
+    btn.setAttribute("aria-label", label);
+    btn.setAttribute("title", label);
+  }
+
+  function getAudio() {
+    if (!audioCtx) {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      try { audioCtx = new AC(); } catch (e) { return null; }
+    }
+    if (audioCtx.state === "suspended" && audioCtx.resume) audioCtx.resume();
+    return audioCtx;
+  }
+
+  // Un pitido corto de onda cuadrada (combina con el estilo cuadrado del sitio)
+  function blip(type, f0, f1, dur, vol, delay) {
+    var ctx = getAudio();
+    if (!ctx) return;
+    var t = ctx.currentTime + (delay || 0);
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(f0, t);
+    osc.frequency.exponentialRampToValueAtTime(f1, t + dur);
+    gain.gain.setValueAtTime(0.0001, t);
+    gain.gain.exponentialRampToValueAtTime(vol, t + 0.006);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(t);
+    osc.stop(t + dur + 0.02);
+  }
+
+  var SFX = {
+    tick: function () { blip("square", 880, 620, 0.06, 0.035); },
+    nav:  function () { blip("square", 300, 520, 0.07, 0.04); blip("square", 520, 780, 0.08, 0.035, 0.06); },
+    on:   function () { blip("square", 520, 520, 0.07, 0.04); blip("square", 780, 780, 0.1, 0.04, 0.08); },
+    off:  function () { blip("square", 780, 780, 0.07, 0.04); blip("square", 440, 440, 0.1, 0.04, 0.08); },
+    nope: function () { blip("sawtooth", 140, 90, 0.14, 0.035); }
+  };
+
+  if (soundBtn) {
+    soundBtn.addEventListener("click", function () {
+      if (soundOn) {
+        SFX.off();               // suena antes de apagarse
+        soundOn = false;
+      } else {
+        soundOn = true;
+        SFX.on();                // confirma que ya está activado
+      }
+      try { localStorage.setItem(SOUND_KEY, soundOn ? "1" : "0"); } catch (e) { /* sin almacenamiento */ }
+      updateSoundUI();
+    });
+  }
+
+  // Sonido al apretar cualquier botón o enlace (si el sonido está activado)
+  d.addEventListener("click", function (e) {
+    if (!soundOn || !e.target || !e.target.closest) return;
+    var el = e.target.closest("a, button");
+    if (!el || el.id === "sound") return;
+    if (el.getAttribute("aria-disabled") === "true") { SFX.nope(); return; }
+    if (el.matches(".nav a, .logo, .footer__nav a, .jump a, .mini, .hero__cta a")) SFX.nav();
+    else SFX.tick();
+  }, true);
+
+  updateSoundUI();
 
   /* ---------- Año del pie ---------- */
   var year = d.getElementById("year");

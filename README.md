@@ -71,7 +71,7 @@ Lo más cómodo es usar **GitHub Releases** para alojar los archivos:
   ```
 
   Cuando tengas varias redes, puedes borrar la fila "Próximamente" (`class="channels__soon"`).
-- **Textos en español:** edítalos en `index.html`. **En inglés:** en el objeto `EN` de `script.js` (misma clave `data-i18n`). Si cambias uno, cambia el otro.
+- **Textos en español:** edítalos en `index.html`. **En inglés:** en el objeto `EN` de `script.js`. **En chino mandarín:** en el objeto `ZH` del mismo archivo. Todos usan la misma clave `data-i18n`; si cambias un texto, cambia también sus traducciones.
 - **Colores:** al inicio de `styles.css`, en `:root`:
 
   ```css
@@ -87,4 +87,7 @@ Lo más cómodo es usar **GitHub Releases** para alojar los archivos:
 
 - El idioma se detecta según el navegador y se recuerda la elección del visitante.
 - Respeta la preferencia de "reducir movimiento" del sistema.
-- Las tipografías necesitan conexión a internet para verse bien.
+- Las tipografías necesitan conexión a internet para verse bien (el chino usa Noto Sans SC, también de Google Fonts).
+- **Idiomas:** español, inglés y chino mandarín (中文). Se elige con los botones ES / EN / 中文 de la cabecera.
+- **Sonido:** el botón con el altavoz, junto a los idiomas, activa o desactiva un sonido corto al apretar botones y enlaces. Viene **desactivado** por defecto y recuerda la elección del visitante. Los sonidos se generan en el navegador, no hay archivos de audio.
+- **Celulares:** la cabecera se compacta en pantallas pequeñas, los botones son más grandes para el dedo, se respetan las zonas de la pantalla con muescas y los efectos de "pasar el mouse" se reemplazan por efectos al tocar.
